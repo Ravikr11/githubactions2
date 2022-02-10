@@ -24,4 +24,3 @@ def lambda_handler(event, context):
     else:
 
         raise
-© 2022 GitHub, Inc.
