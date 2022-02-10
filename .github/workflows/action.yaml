@@ -67,7 +67,8 @@ jobs:
           aws-region: us-west-2
       - name: Upload to S3
         run: aws s3 cp deploy_package.zip s3://githubactionstest3/${{ github.repository }}/deploy_package.zip  
-Test:
+        
+  Test:
     runs-on: ubuntu-latest
     needs: upload
     strategy:
@@ -98,7 +99,6 @@ Test:
         if: ${{ always() }}
         run: |
             aws lambda delete-function --function-name test-function-${{ matrix.input }}
-        
   deploy:
     runs-on: ubuntu-latest
     needs: Test
